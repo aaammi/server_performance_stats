@@ -18,3 +18,6 @@ echo "Disk Usage Percentage: $disk_percent"
 
 echo -e "\n[Top 5 Processes by CPU Usage]"
 ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6 | awk 'NR==1 {print "PID\tCOMMAND\t\t%CPU"} NR>1 {printf "%d\t%-15s\t%.2f%%\n", $1, $2, $3}'
+
+echo -e "\n[Top 5 Processes by Memory Usage]"
+ps -eo pid,comm,%mem --sort=-%mem | head -n 6 | awk 'NR==1 {print "PID\tCOMMAND\t\t%MEM"} NR>1 {printf "%d\t%-15s\t%.2f%%\n", $1, $2, $3}'
